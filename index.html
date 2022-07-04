@@ -11,7 +11,7 @@
     <script type="text/javascript" src="resource/js/main.js"></script>
     <script>
         var serverKey;
-
+        /*
         const promise = fetch("http://121.136.244.39:14040/getServerKey.do")
         .then(response => response.json())
         .then(json => {
@@ -19,6 +19,21 @@
             console.log(json);
             document.getElementById("receivedPubKey").innerHTML = json.key;
         });
+        */
+
+        $.ajax({
+	    url: 'http://121.136.244.39:14040/getServerKey.do',
+	    type: 'POST',
+	    data: {
+	    },
+		async: false,
+	    success: function onData (data) {
+	    	console.log('hi');
+	    },
+	    error: function onError (error) {
+	        console.error(error);
+	    }
+	});
 
 
     </script>
